@@ -6,14 +6,15 @@
 
 #include "gpod-1.0/gpod/itdb.h"
 
-// path to songs count
+// path to songs count (to be configured from command-line)
 static const char *songs_count_path = "/songs_count";
 
-// mount point of the ipod
-static const char *ipod_mount_point = "/media/disk";
+// mount point of the ipod (to be passed via the command line)
+static const char *ipod_mount_point = "/media/ipod";
 
 /**
- *
+ * tries to parse the contents of the Ipod to get the total number of songs.
+ * Note: libgpod is initialized here; probably we'll move it out to speed up the process.
  * @return number of all songs
  */
 int get_songs_count() {
